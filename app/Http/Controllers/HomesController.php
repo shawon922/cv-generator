@@ -42,6 +42,24 @@ class HomesController extends Controller
 
         $existingProfile = Profile::where('user_id', Auth::id())->first();
 
+        $picture = "";
+        //dd($request->hasFile('profile_picture'));
+
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
+            $filename = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $picture = sha1($filename . time()) . '.' . $extension;
+        }
+        $profile['profile_picture'] = $picture;
+        
+        if ($request->hasFile('profile_picture')) {            
+            $destinationPath = public_path() . '/img/users/';
+            $request->file('profile_picture')->move($destinationPath, $picture);
+        }
+
+        dd($profile);
+
         if (!empty($existingProfile)) {
             $update = Profile::find($existingProfile->id);
             $update->update($profile);
