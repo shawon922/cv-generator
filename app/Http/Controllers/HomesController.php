@@ -19,7 +19,8 @@ class HomesController extends Controller
 {
     public function index()
     {
-        $page_title = 'CV-Maker';
+        $page_title = 'CV-Maker'; 
+        //dd(Auth::user()->profile);
         return view('homes.index', compact('page_title'));
     }
 
@@ -71,29 +72,13 @@ class HomesController extends Controller
             unset($profile['profile_picture']);
         }
         
-
-        if ($request->hasFile('profile_picture')) {            
-            $destinationPath = public_path() . '/img/users/';
-            $request->file('profile_picture')->move($destinationPath, $picture);
-        }
-
-        $picture = "";
-        //dd($request->hasFile('profile_picture'));
-
-        if ($request->hasFile('profile_picture')) {
-            $file = $request->file('profile_picture');
-            $filename = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
-            $picture = sha1($filename . time()) . '.' . $extension;
-        }
-        $profile['profile_picture'] = $picture;
         
         if ($request->hasFile('profile_picture')) {            
             $destinationPath = public_path() . '/img/users/';
             $request->file('profile_picture')->move($destinationPath, $picture);
         }
 
-        dd($profile);
+        //dd($profile);
 
         if (!empty($existingProfile)) {
             $update = Profile::find($existingProfile->id);

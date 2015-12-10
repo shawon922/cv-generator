@@ -99,7 +99,6 @@
                                     <span class="sr-only">50% Complete</span>
                                 </div>
                             </div>
-
                         </a>
                     </li>
                     <li class="external">
@@ -223,7 +222,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <span class="profile-ava">
-                        <img width="35" height="35" alt="" src="{{ 'img/users/'.Auth::user()->profile->profile_picture }}">
+                        <img width="35" height="35" alt="" src="img/users/{{ Auth::user()->profile ? Auth::user()->profile->profile_picture : '' }}">
                     </span>
                     <span class="username">{{ Auth::user()->first_name.' '.Auth::user()->last_name}}</span>
                     <b class="caret"></b>
