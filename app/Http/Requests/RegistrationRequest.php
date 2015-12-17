@@ -27,7 +27,7 @@ class RegistrationRequest extends Request
             'first_name' => 'required|min:6|max:100',
             'last_name' => 'required|min:6|max:100',
             'username' => 'required|min:6|max:60|unique:users',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|min:6|max:150|email|unique:users',
             'password' => 'required'
         ];
     }

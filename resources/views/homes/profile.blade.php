@@ -154,6 +154,27 @@
 												{!! Form::text('last_name', null, array('class' => 'form-control')) !!}
 											</div>
 										</div>
+
+										<div class="form-group">
+											{!! Form::label('mobile', 'Mobile No.', array('class' => 'col-lg-2 control-label')) !!}
+											<div class="col-lg-6">
+												{!! Form::input('date', 'mobile', null, array('class' => 'form-control')) !!}
+											</div>
+										</div>
+
+										<div class="form-group">
+											{!! Form::label('phone', 'Telephone No.', array('class' => 'col-lg-2 control-label')) !!}
+											<div class="col-lg-6">
+												{!! Form::input('date', 'phone', null, array('class' => 'form-control')) !!}
+											</div>
+										</div>
+
+										<div class="form-group">
+											{!! Form::label('skype', 'Skype Id', array('class' => 'col-lg-2 control-label')) !!}
+											<div class="col-lg-6">
+												{!! Form::input('date', 'skype', null, array('class' => 'form-control')) !!}
+											</div>
+										</div>
 										
 										<div class="form-group">
 											{!! Form::label('date_of_birth', 'Date of Birth', array('class' => 'col-lg-2 control-label')) !!}
