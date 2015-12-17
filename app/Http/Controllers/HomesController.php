@@ -35,6 +35,10 @@ class HomesController extends Controller
         $profile['first_name'] = $user['first_name'];
         $profile['last_name'] = $user['last_name'];
 
+        if ($profile['date_of_birth'] == '0000-00-00') {
+            $profile['date_of_birth'] = '';
+        }
+
         //dd($profile);
 
         return view('homes.profile', compact('page_title', 'profile'));
@@ -88,7 +92,7 @@ class HomesController extends Controller
         }
        
 
-        Session::flash('success', 'The post has been saved.');
+        Session::flash('success', 'The profile has been update. Thank you.');
         return redirect('/profile');
     }
 }

@@ -17,9 +17,12 @@ class CreateOnlineActivitiesTable extends Migration
             $table->integer('user_id')->unsigned()->nullable(); //First create user_id column
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null'); //Then describe the reference of user_id
             $table->string('link');
+            $table->tinyInteger('link_visibility')->default('1');
             $table->text('description');
+            $table->tinyInteger('description_visibility')->default('1');
             $table->tinyInteger('type');
             $table->tinyInteger('priority')->default('0');
+            $table->tinyInteger('visibility')->default('1');
             $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
